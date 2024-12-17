@@ -1,0 +1,27 @@
+<form [formGroup]="formEjerB">
+    <div>
+        <input name="num1" type="text" formControlName="num1" [(ngModel)]="numero1"> @if (this.formEjerB.get('num1')?.invalid && this.formEjerB.get('num1')?.touched) { @if(this.formEjerB.get('num1')?.errors?.['required']) {
+        <p class="text-danger">El numero no puede estar vacio</p>
+        } @if(this.formEjerB.get('num1')?.errors?.['pattern']) {
+        <p class="text-danger">El formato no es correcto</p>
+        } @if(this.formEjerB.get('num1')?.errors?.['maxLenght']) {
+        <p class="text-danger">Tamaño excedido</p>
+        } }
+        <input name="num2" type="text" formControlName="num2" [(ngModel)]="numero2"> @if (this.formEjerB.get('num2')?.invalid && this.formEjerB.get('num2')?.touched) { @if(this.formEjerB.get('num2')?.errors?.['required']) {
+        <p class="text-danger">El numero no puede estar vacio</p>
+        } @if(this.formEjerB.get('num2')?.errors?.['pattern']) {
+        <p class="text-danger">El formato no es correcto</p>
+        } @if(this.formEjerB.get('num2')?.errors?.['maxLenght']) {
+        <p class="text-danger">Tamaño excedido</p>
+        } }
+        <input name="operacion" type="text" formControlName="opera" [(ngModel)]="operacion"> @if (this.formEjerB.get('opera')?.invalid && this.formEjerB.get('opera')?.touched) { @if(this.formEjerB.get('opera')?.errors?.['required']) {
+        <p class="text-danger">El numero no puede estar vacio</p>
+        } @if(this.formEjerB.get('opera')?.errors?.['pattern']) {
+        <p class="text-danger">El formato no es correcto</p>
+        } @if(this.formEjerB.get('opera')?.errors?.['maxLenght']) {
+        <p class="text-danger">Tamaño excedido</p>
+        } }
+        <button class="btn btn-primary" (click)="operar()">Opera</button>
+        <output for="resultado">{{resultado}}</output>
+    </div>
+</form>

@@ -1,0 +1,13 @@
+<form [formGroup]="formEjerA">
+    <div>
+        <input name="num" formControlName="numero" type="text" [(ngModel)]="fact">
+        <button (click)="factorial()" class="btn btn-primary" [disabled]="formEjerA.invalid">Factorial</button><span> = </span>
+        <output for="num">{{salida}}</output> @if (this.formEjerA.get('numero')?.invalid && this.formEjerA.get('numero')?.touched) { @if(this.formEjerA.get('numero')?.errors?.['required']) {
+        <p class="text-danger">El numero no puede estar vacio</p>
+        } @if(this.formEjerA.get('numero')?.errors?.['pattern']) {
+        <p class="text-danger">El formato es incorrecto</p>
+        } @if(this.formEjerA.get('numero')?.errors?.['maxlength']) {
+        <p class="text-danger">El numero no puede ser superior de {{cifras}} cifras</p>
+        } }
+    </div>
+</form>
