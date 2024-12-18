@@ -3,26 +3,51 @@
         <div class="col-3">
             <label for="nom" class="form-label">Nombre</label>
             <input type="text" class="form-control is-valid" id="nom" formControlName="nombre" value="">
-            <div class="invalid-feedback">
-                @if(this.contactForm.get('nombre')?.invalid && this.contactForm.get('nombre')?.touched) { @if(this.contactForm.get('nombre')?.errors?.['required']) { El nombre no puede quedar vacío } @if(this.contactForm.get('nombre')?.errors?.['soloLetras']) { Debe
-                contener solo letras } @if(this.contactForm.get('nombre')?.errors?.['maxLength']){ No debe exceder de 6 caracteres } }
-            </div>
+            @if(this.contactForm.get('nombre')?.invalid && this.contactForm.get('nombre')?.touched) { 
+                @if(this.contactForm.get('nombre')?.errors?.['required']) { 
+                    <div class="invalid-feedback">El nombre no puede quedar vacío </div>
+                } 
+                @if(this.contactForm.get('nombre')?.errors?.['soloLetras']) { 
+                    <div class="invalid-feedback">Debe contener solo letras </div>
+                } 
+                @if(this.contactForm.get('nombre')?.errors?.['maxLength']){ 
+                    <div class="invalid-feedback">No debe exceder de 6 caracteres</div>
+                } 
+            }
         </div>
         <div class="col-3">
             <label for="password" class="form-label">Contraseña</label>
             <input type="text" class="form-control is-valid" id="password" formControlName="contrasenya" value="">
-            <div class="invalid-feedback">
-                @if(this.contactForm.get('contrasenya')?.invalid && this.contactForm.get('contrasenya')?.touched) { @if(this.contactForm.get('contrasenya')?.errors?.['required']) { La contraseña no puede quedar vacía } @if(this.contactForm.get('contrasenya')?.errors?.['password'])
-                { Debe contener letras y numeros } @if(this.contactForm.get('contrasenya')?.errors?.['minLength']){ Debe tener un minimo de 8 caracteres } }
-            </div>
+            @if(this.contactForm.get('contrasenya')?.invalid && this.contactForm.get('contrasenya')?.touched) { 
+                @if(this.contactForm.get('contrasenya')?.errors?.['required']) { 
+                    <div class="invalid-feedback">La contraseña no puede quedar vacía </div>
+                }
+                @if(this.contactForm.get('contrasenya')?.errors?.['password']) { 
+                    <div class="invalid-feedback">Debe contener letras y numeros </div>
+                } 
+                @if(this.contactForm.get('contrasenya')?.errors?.['minLength']){ 
+                    <div class="invalid-feedback">Debe tener un minimo de 8 caracteres </div>
+                } 
+            }
         </div>
         <div class="col-3">
             <label for="password2" class="form-label">Confirmar contraseña</label>
             <input type="text" class="form-control is-valid" id="password2" formControlName="contrasenya2" value="">
             <div class="invalid-feedback">
-                @if(this.contactForm.get('contrasenya')?.invalid && this.contactForm.get('contrasenya')?.touched) { @if(this.contactForm.get('contrasenya')?.errors?.['required']) { La contraseña no puede quedar vacía } @if(this.contactForm.get('contrasenya')?.errors?.['password'])
-                { Debe contener letras y numeros } @if(this.contactForm.get('contrasenya')?.errors?.['minLength']){ Debe tener un minimo de 8 caracteres } @if(this.contactForm.get('contrasenya')?.errors?.['password2']) { Debe coincidir con la Contraseña
-                } }
+                @if(this.contactForm.get('contrasenya')?.invalid && this.contactForm.get('contrasenya')?.touched) { 
+                    @if(this.contactForm.get('contrasenya')?.errors?.['required']) { 
+                        <div class="invalid-feedback">La contraseña no puede quedar vacía </div>
+                    } 
+                    @if(this.contactForm.get('contrasenya')?.errors?.['password']) { 
+                        <div class="invalid-feedback">Debe contener letras y numeros </div>
+                    }
+                    @if(this.contactForm.get('contrasenya')?.errors?.['minLength']){ 
+                        <div class="invalid-feedback">Debe tener un minimo de 8 caracteres </div>
+                    } 
+                    @if(this.contactForm.get('contrasenya')?.errors?.['password2']) { 
+                        <div class="invalid-feedback">Debe coincidir con la Contraseña</div>
+                    } 
+                }
             </div>
         </div>
     </div>
@@ -30,10 +55,14 @@
         <div class="col-4">
             <label for="email" class="form-label" for="cemail">Correo Electronico</label>
             <input type="text" class="form-control is-valid" id="cemail" value="" formControlName="cemail">
-            <div class="invalid-feedback">
-                @if(this.contactForm.get('cemail')?.invalid && this.contactForm.get('cemail')?.touched) { @if(this.contactForm.get('cemail')?.errors?.['required']) { El email no puede quedar vacío } @if(this.contactForm.get('cemail')?.errors?.['email']) { Solo admite
-                email } }
-            </div>
+            @if(this.contactForm.get('cemail')?.invalid && this.contactForm.get('cemail')?.touched) { 
+                @if(this.contactForm.get('cemail')?.errors?.['required']) { 
+                    <div class="invalid-feedback">El email no puede quedar vacío </div>
+                } 
+                @if(this.contactForm.get('cemail')?.errors?.['email']) { 
+                    <div class="invalid-feedback">Solo admite email </div>
+                } 
+            }
         </div>
         <div class="col-3">
             <label for="estado" class="form-label">Estado Civil</label>
@@ -43,9 +72,11 @@
                     <option value="{{estadoCivil[idx]}}">{{estadoCivil[idx]}}</option>
                 }
             </select>
-            <div id="estado" class="invalid-feedback">
-                @if(this.contactForm.get('estcivil')?.invalid && this.contactForm.get('estcivil')?.touched) { @if(this.contactForm.get('estcivil')?.errors?.['required']) { Necesitas seleccionar una opción. } }
-            </div>
+            @if(this.contactForm.get('estcivil')?.invalid && this.contactForm.get('estcivil')?.touched) { 
+                @if(this.contactForm.get('estcivil')?.errors?.['required']) { 
+                    <div id="estado" class="invalid-feedback">Necesitas seleccionar una opción. </div>
+                } 
+            }
         </div>
         <div class="col-3">
             <label class="form-check-label" for="hombre">Sexo</label>
@@ -61,19 +92,26 @@
                 <input type="radio" class="form-check-input" id="otro" name="sexe" formControlName="sexe" value="otro">
                 <label class="form-check-label" for="otro">Otros</label>
                 <div class="invalid-feedback">
-                    @if(this.contactForm.get('sexe')?.invalid && this.contactForm.get('sexe')?.touched) { @if(this.contactForm.get('sexe')?.errors?.['required']) { Debe seleccionar una opción } }
+                    @if(this.contactForm.get('sexe')?.invalid && this.contactForm.get('sexe')?.touched) { 
+                        @if(this.contactForm.get('sexe')?.errors?.['required']) { 
+                            Debe seleccionar una opción 
+                        } 
+                    }
                 </div>
             </div>
         </div>
         <div class="col-4 ms-3">
-            <label class="form-check-label">De que quieres recibir información?</label> @for(boxes of checkboxes; track boxes; let idx = $index, e = $even) {
-            <div class="form-check">
-                <input type="checkbox" class="form-check-input" id="cboxes{{idx}}" formControlName="reqinfo">
-                <label class="form-check-label ms-2" for="cboxes{{idx}}">{{checkboxes[idx]}}</label>
-            </div>
+            <label class="form-check-label">De que quieres recibir información?</label> 
+            @for(boxes of checkboxes; track boxes; let idx = $index, e = $even) {
+                <div class="form-check">
+                    <input type="checkbox" class="form-check-input" id="cboxes{{idx}}" formControlName="reqinfo">
+                    <label class="form-check-label ms-2" for="cboxes{{idx}}">{{checkboxes[idx]}}</label>
+                </div>
             }
             <div class="invalid-feedback">
-                @if(this.contactForm.get('reqinfo')?.errors?.['required']) { Puede seleccionar una opción. }
+                @if(this.contactForm.get('reqinfo')?.errors?.['required']) { 
+                    Puede seleccionar una opción. 
+                }
             </div>
         </div>
         <div class="col-3 ms-3">
